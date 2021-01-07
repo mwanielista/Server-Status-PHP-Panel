@@ -1,0 +1,21 @@
+body, html{ 
+    font: 14px sans-serif; 
+    text-align: center; 
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+}
+
+.table{
+   margin-top: 50px;
+
+    
+}
+.signoutbtn{
+    margin-top: 80px;
+}
