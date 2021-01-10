@@ -1,4 +1,4 @@
-<?php
+<?php   
    $link = mysqli_connect('', '', '', '');
 
    $date = date("Y-m-d H:i:s");
@@ -17,7 +17,7 @@
             
             if($row['notification'] == null){
                         require_once('PHPMailer/PHPMailerAutoload.php');
-                        $mail = new PHPMailer();
+                         $mail = new PHPMailer();
                         $mail -> isSMTP();
                         $mail -> SMTPAuth = true;
                         $mail -> SMTPSecure = 'ssl';
@@ -34,6 +34,9 @@
                         
                         $updateNotification = "UPDATE status SET notification='To check' where id=".$row['id'];
                         mysqli_query($link, $updateNotification);
+
+                        mysqli_query( $link,"INSERT INTO log VALUES(null,'".$row['model']."', '".$row['date']."', '')");
+                        
             }
         }
 

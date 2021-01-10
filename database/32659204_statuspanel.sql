@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Czas generowania: 07 Sty 2021, 13:24
+-- Czas generowania: 10 Sty 2021, 14:23
 -- Wersja serwera: 5.7.31-34
 -- Wersja PHP: 7.4.6
 
@@ -24,6 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `log`
+--
+
+CREATE TABLE `log` (
+  `id` int(255) NOT NULL,
+  `device` varchar(30) NOT NULL,
+  `time_stopped` varchar(30) NOT NULL,
+  `time_run` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin2;
+
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `status`
 --
 
@@ -35,13 +49,6 @@ CREATE TABLE `status` (
   `notification` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin2;
 
---
--- Zrzut danych tabeli `status`
---
-
-INSERT INTO `status` (`id`, `model`, `date`, `status`, `notification`) VALUES
-(1, 'T620 OBS', '2021-01-07 13:24:02', 'Running', NULL),
-(2, 'T620 NGINX', '2021-01-07 13:24:02', 'Running', NULL);
 
 -- --------------------------------------------------------
 
@@ -56,16 +63,16 @@ CREATE TABLE `users` (
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Zrzut danych tabeli `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'mwanielista', '$2y$10$Plc.hN2XbQBK6t9izGOvR.kMIMeLYfMraXFl7YJ2Tgt9oSbScjGMG', '2021-01-06 13:51:24');
 
 --
 -- Indeksy dla zrzutów tabel
 --
+
+--
+-- Indeksy dla tabeli `log`
+--
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeksy dla tabeli `status`
@@ -85,10 +92,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT dla tabeli `log`
+--
+ALTER TABLE `log`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT dla tabeli `status`
 --
 ALTER TABLE `status`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
